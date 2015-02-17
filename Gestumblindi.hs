@@ -14,7 +14,6 @@ import Data.Char
 dict = "/usr/share/dict/words"
 
 inputString = "optimizationmatters"
-
 -- * use this if upper case is treated as same as lower case
 -- inputString = inputString ++ map toUpper inputString
 
@@ -35,6 +34,7 @@ notStartWith c ws = filter ((/= c) . head) ws
 
 notContain c ws   = filter (not . elem c) ws
 
+-- for searching length exactly i words
 lengthEq i ws    = filter ((== i) . length) ws 
 noLonger i ws    = filter ((<= i) . length) ws 
 
