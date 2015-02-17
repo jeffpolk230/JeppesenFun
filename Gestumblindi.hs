@@ -11,7 +11,7 @@ import Data.List
 import Data.Char
 
 -- Dictionary for Mac
-dict = "/usr/share/dict/words"
+dict = "./words"
 
 inputString = "optimizationmatters"
 -- * use this if upper case is treated as same as lower case
@@ -30,16 +30,18 @@ main = do
   print $ filter (flip matching inputString) ws'
 
 -- this could be nice pre-filter if inputString containing more than 12 diff alphabets
-notStartWith c ws = filter ((/= c) . head) ws
-
+-- notStartWith c ws = filter ((/= c) . head) ws
 notContain c ws   = filter (not . elem c) ws
 
 -- for searching length exactly i words
-lengthEq i ws    = filter ((== i) . length) ws 
+-- lengthEq i ws    = filter ((== i) . length) ws 
 noLonger i ws    = filter ((<= i) . length) ws 
 
 
-matching :: String -> String -> Bool
+-- | finding matches through compare-and-pop 
+matching :: String -- ^ target word
+         -> String -- ^ given reference 
+         -> Bool   
 matching _ []     = False
 matching [] _     = True
 matching (x:xs) s = if x `elem` s 
