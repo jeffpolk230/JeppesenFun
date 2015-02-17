@@ -1,4 +1,8 @@
 {-
+Module        : GESTUMBLINDI
+Description   : dictionary searching inspired by Jeppesen's activity
+Coptyright    : Jeff Chen , 2015
+                jeff.polk230@gmail.com
 
 generate a list and count of all possible 3 letter words contained within an English dictionary.
 If you want to show off your optimization skills how about generating all possible words for length 1 up to 19
